@@ -1,6 +1,5 @@
 import 'payment_gateway.dart';
 
-// Concrete Implementation A
 class CreditCardPayment implements PaymentGateway {
   final String cardNumber;
 

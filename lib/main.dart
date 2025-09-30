@@ -1,6 +1,7 @@
 import 'services/checkout_service.dart';
 import 'services/credit_card_payment.dart';
 import 'services/paypal_payment.dart';
+import 'services/crypto_payment.dart';
 
 void main() {
   print('Demonstrating Dependency Injection with Gateways');
@@ -15,4 +16,9 @@ void main() {
   var payPalGateway = PayPalPayment('customer@example.com');
   var checkoutWithPayPal = CheckoutService(payPalGateway);
   checkoutWithPayPal.completeCheckout(89.99);
+
+  print('    SCENARIO 3: Customer is paying with Cryptocurrency    ');
+  var cryptoGateway = CryptoPayment('0xAbCd...EfGh');
+  var checkoutWithCrypto = CheckoutService(cryptoGateway);
+  checkoutWithCrypto.completeCheckout(1200.50);
 }
